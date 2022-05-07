@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900;
+  }
+}
+
+@layer utilities {
+  .flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .flip-inside {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 400ms;
+  }
+
+  .flip-card__front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    z-index: 2;
+  }
+
+  .flip-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+  }
+
+  .flip {
+    transform: rotateX(-180deg);
+  }
+
+  .noAnim {
+    transform: rotateX(-180deg);
+    transition: transform 0ms;
+  }
+}
