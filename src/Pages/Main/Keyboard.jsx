@@ -59,15 +59,15 @@ function Keyboard({ pause }) {
     const input = inputRef?.current;
 
     if (!checkWidth) {
-      document.addEventListener("keypress", handleKey);
+      document.addEventListener("keydown", handleKey);
     } else {
-      input.addEventListener("keypress", handleKeyMobile);
+      input.addEventListener("keydown", handleKeyMobile);
       input.addEventListener("input", handleKeyMobile);
     }
 
     return () => {
-      document.removeEventListener("keypress", handleKey);
-      input?.removeEventListener("keypress", handleKeyMobile);
+      document.removeEventListener("keydown", handleKey);
+      input?.removeEventListener("keydown", handleKeyMobile);
       input?.removeEventListener("input", handleKeyMobile);
     };
   }, [dispatch, typed, activeWords, pause, checkWidth]);
